@@ -126,7 +126,7 @@ def presense():
 	presense_data = response.json()
 	# print(presense_data)
 
-	keys_list = [list(entry.keys()) for entry in presense_data['data']]
+	keys_list = [list(entry.keys()) for entry in presense_data.get('data')]
 	headers = list(set().union(*keys_list))
 	# print("header", headers)
 	spreadsheet_id = os.environ.get("SHEET_ID")
