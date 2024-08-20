@@ -28,6 +28,20 @@ driver.get(
 wrapper = wait.until(EC.visibility_of_element_located(
     (By.CSS_SELECTOR, '.content-wrapper')))
 
+date_picker_wrapper = wrapper.find_element(By.CSS_SELECTOR, '.date-range-picker-wrapper')
+date_picker_wrapper.click()
+
+
+time.sleep(5)
+daterangepicker = wait.until(EC.visibility_of_element_located(
+    (By.CSS_SELECTOR, '.daterangepicker')))
+if daterangepicker:
+	daterangepicker.find_element(By.CSS_SELECTOR, '[data-range-key="Today"]').click()
+
+time.sleep(5)
+
+
+
 summary = wait.until(EC.visibility_of_element_located(
     (By.CSS_SELECTOR, '.summary')))
 table_contents = summary.find_elements(By.CSS_SELECTOR, 'table tbody tr')
